@@ -3,6 +3,9 @@ sudo: required
 services:
   - docker
 
+arch: 
+  - arm64
+  - amd64
 language: go
 
 go:
