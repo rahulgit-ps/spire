@@ -26,9 +26,6 @@ branches:
   only:
     - master
     - /^v\d+\.\d+(\.\d+)?$/
-    
-install:
-  - sudo apt-get install shellcheck
 
 stages:
   - lint and test
@@ -44,6 +41,8 @@ jobs:
         - arm64
         - amd64
       script:
+        - sudo apt-get update
+        - sudo apt-get install shellcheck
         - make lint
         - make tidy-check
         - make generate-check
