@@ -52,9 +52,6 @@ jobs:
       dist: xenial
     - stage: lint and test
       name: macos tests
-      arch: 
-        - arm64
-        - amd64
       script:
         - .travis/run-unit-tests.sh
       os: macos
