@@ -3,9 +3,6 @@ sudo: required
 services:
   - docker
 
-arch: 
-  - arm64
-  - amd64
 language: go
 
 go:
@@ -40,6 +37,9 @@ jobs:
   include:
     - stage: lint and test
       name: lint
+      arch: 
+        - arm64
+        - amd64
       script:
         - make lint
         - make tidy-check
@@ -52,16 +52,25 @@ jobs:
       dist: xenial
     - stage: lint and test
       name: macos tests
+      arch: 
+        - arm64
+        - amd64
       script:
         - .travis/run-unit-tests.sh
       os: macos
     - stage: lint and test
       name: linux tests
+      arch: 
+        - arm64
+        - amd64
       script:
         - .travis/run-unit-tests.sh
       os: linux
       dist: xenial
     - stage: build release
+      arch: 
+        - arm64
+        - amd64
       script:
         - make artifact
         - .travis/build-release.sh
@@ -90,6 +99,9 @@ jobs:
             condition: $GITHUB_TOKEN != ""
 
     - stage: publish images
+      arch: 
+        - arm64
+        - amd64
       if: type = push AND (tag IS present OR branch = master)
       os: linux
       dist: xenial
@@ -102,6 +114,9 @@ jobs:
         - .travis/publish-images.sh
 
     - stage: nightly integration tests
+      arch: 
+        - arm64
+        - amd64
       if: type = cron
       os: linux
       dist: xenial
