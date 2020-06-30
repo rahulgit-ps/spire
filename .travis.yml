@@ -106,7 +106,7 @@ jobs:
       dist: xenial
       before_script:
         # Decrypt credentials needed to log into gcr registry
-        - openssl aes-256-cbc -K $encrypted_b48f9e852489_key -iv $encrypted_b48f9e852489_iv -in .travis/spire-travis-ci.json.enc -out .travis/spire-travis-ci.json -d
+        - openssl aes-256-cbc -K $encrypted_b48f9e852489_key -iv 0 -in .travis/spire-travis-ci.json.enc -out .travis/spire-travis-ci.json -d
       script:
         - make images
         - make integration
