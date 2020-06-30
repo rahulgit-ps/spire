@@ -107,7 +107,6 @@ jobs:
           on:
             tags: true
             condition: $GITHUB_TOKEN != ""
-            
     - stage: build release
     arch: arm64
       script:
@@ -148,8 +147,7 @@ jobs:
       script:
         - make images
         - make integration
-        - .travis/publish-images.sh
-        
+        - .travis/publish-images.sh 
     - stage: publish images
       arch: arm64
       if: type = push AND (tag IS present OR branch = master)
