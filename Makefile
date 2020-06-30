@@ -79,7 +79,7 @@ arch1=$(shell uname -m)
 ifeq ($(arch1),x86_64)
 arch2=amd64
 else ifeq ($(arch1),aarch64)
-arch1=arm64
+arch1=Aarch64
 arch2=arm64
 else
 $(error unsupported ARCH: $(arch1))
