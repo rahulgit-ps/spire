@@ -108,7 +108,7 @@ jobs:
             tags: true
             condition: $GITHUB_TOKEN != ""
     - stage: build release
-    arch: arm64
+      arch: arm64
       script:
         - make artifact
         - .travis/build-release.sh
